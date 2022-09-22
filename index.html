@@ -13,7 +13,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fira+Sans:ital,wght@0,200;0,400;1,700&family=Poppins:wght@800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -36,28 +36,27 @@
         .main-text {
             background: #ccc;
             background: linear-gradient(#e5daba ,gray);
-            font-family: system-ui; 
 
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Fira Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         .hero-desing {
-            background: url('./img/img69.jpg');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 100%;
-            min-height: 90vh;
+            max-width: 100%;
+            min-height: auto;
+        }
+
+        .img-jardineria {
+            max-width: 100%;
+            min-height: auto;
         }
 
         .hero-payments {
-            background: url('./img/img70.jpg');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 100%;
-            min-height: 90vh;
+            max-width: 100%;
+            min-height: auto;
         }
 
         .hero-footer {
@@ -67,6 +66,11 @@
             background-size: cover;
             width: 100%;
             min-height: 100vh;
+        }
+
+        .img-mantenimiento {
+            max-width: 100%;
+            min-width: auto;
         }
 
         .tree-hero {
@@ -90,11 +94,34 @@
 
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Fira Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .help-text {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            background: #ccc;
+            background: linear-gradient(#e5daba ,gray);
+            font-family: system-ui; 
+
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Fira Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         .nav-link {
             color: #997206 !important;
             font-weight: bold;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Fira Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         .form-control {
@@ -102,21 +129,29 @@
             background-color: #f3eddb !important;
             color: white !important;
             border-color: #d4d1c6 !important;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Fira Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         .text-project {
             background: #ccc;
-            background: linear-gradient(#e5daba ,gray);
-            font-family: system-ui; 
+            background: linear-gradient(#e5daba ,gray); 
 
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Fira Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         .btn-danger {
             background-color: #e5daba !important;
             border-color: #e5daba !important;
             padding: 10px 10px;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Fira Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
     </style>
 </head>
@@ -157,7 +192,7 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-5 border-bottom shadow-lg">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <img src="./img/CIELO VERDE- SIN FONDO.png" alt="" class="img-fluid" width="260" height="120">
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -165,10 +200,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link fw-bold text-uppercase">Inicio</a>
-                <a href="about.html" class="nav-item nav-link text-uppercase">Somos</a>
-                <a href="service.html" class="nav-item nav-link text-uppercase">Servicios</a>
-                <a href="contact.html" class="nav-item nav-link text-uppercase">Contacto</a>
+                <a href="/" class="nav-item nav-link fw-bold text-uppercase">Inicio</a>
+                <a href="#somos" class="nav-item nav-link text-uppercase">Somos</a>
+                <a href="#services" class="nav-item nav-link text-uppercase">Servicios</a>
+                <a href="#contact" class="nav-item nav-link text-uppercase">Contacto</a>
             </div>
         </div>
     </nav>
@@ -258,7 +293,7 @@
 
 
     <!-- About Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5" id="somos">
         <div class="container">
             <div class="row g-5 align-items-end">
                 <div class="col-lg-3 col-md-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -299,15 +334,16 @@
     </div>
     <!-- About End -->
 
-    <div class="hero-desing">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <h1 class="display-1 text-white mb-5 animated slideInDown main-text text-center second-text">DISEÑO <br> DE JARDINES</h1>
-                </div>
-            </div>
-        </div>
-        
+    <div>
+        <img src="./img/imagenes_Mesa de trabajo 1.svg" alt="" class="img-fluid hero-desing">
+    </div>
+
+    <div>
+        <img src="./img/imagenes-02.svg" alt="" class="img-fluid img-jardineria">
+    </div>
+
+    <div>
+        <img src="./img/imagenes-03.svg" alt="" class="img-fluid img-mantenimiento">
     </div>
 
 
@@ -386,7 +422,7 @@
 
 
     <!-- Service Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5" id="services">
         <div class="container">
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <p class="fs-5 fw-bold text-primary">Servicios</p>
@@ -504,26 +540,17 @@
     </div>
     <!-- Service End -->
 
-    <div class="tree-hero">
+    
 
+    <div>
+        <img src="./img/imagenes-04.svg" alt="" class="img-fluid hero-payments">
     </div>
 
-    <div class="hero-payments">
-        <div class="container">
-            <div class="row align-self-center">
-                <div class="col-lg-8">
-                    <h1 class="display-1 text-white mb-5 animated slideInDown main-text text-center second-text">VENTA <br> DE PLANTAS Y ÁRBOLES</h1>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-
-    <div class="hero-footer">
+    <div class="hero-footer" id="contact">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h1 class="display-1 text-white mb-5 animated slideInDown main-text text-center second-text">¿PUEDO AYUDARTE?</h1>
+                    <h1 class="display-1 text-white mb-5 animated slideInDown main-text text-center help-text">¿PUEDO AYUDARTE?</h1>
                     <h2 class="text-center text-project">PLATICANOS TU PROOYECTO</h2>
                 </div>
             </div>

@@ -266,6 +266,9 @@ h6,
     background: #FFFFFF;
     box-shadow: 0 0 45px rgba(0, 0, 0, .08);
     transition: .3s;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .service-item:hover .service-text {
@@ -290,6 +293,9 @@ h6,
     height: 100px;
     background: transparent;
     transition: .5s;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .service-item:hover .service-text .btn-square {
@@ -495,7 +501,9 @@ h6,
 .footer .btn.btn-link::before {
     position: relative;
     content: "\f105";
-    font-family: "Font Awesome 5 Free";
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 900;
     margin-right: 10px;
 }
