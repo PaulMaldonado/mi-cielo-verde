@@ -8,10 +8,10 @@
   include "./phpmailer/class.smtp.php";
   $mail = new PHPMailer;
 
-  $email_user = "paulmaldonado73@gmail.com";
-  $email_password = "mrjzjulkztykeefy";
+  $email_user = "";
+  $email_password = "";
   $the_subject = utf8_decode("Notificacion para mi cielo verde");
-  $address_to = "paul_pastore10@hotmail.com";
+  $address_to = "";
 
   $from_name = utf8_decode("MICIELOVERDE: Notificación");
   $phpmailer = new PHPMailer();
