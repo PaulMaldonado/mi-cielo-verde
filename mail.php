@@ -3,7 +3,7 @@
   include "./phpmailer/class.smtp.php";
   $mail = new PHPMailer;
 
-  $email_user = "paulmaldonado73@gmail.com";
+  $email_user = "";
   $email_password = "mrjzjulkztykeefy";
   $the_subject = utf8_decode("Notificacion para mi cielo verde");
   $address_to = "paul_pastore10@hotmail.com";
