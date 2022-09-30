@@ -1,3 +1,54 @@
+<?php 
+    if(isset($_POST['save'])) {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+
+  include "./phpmailer/class.phpmailer.php";
+  include "./phpmailer/class.smtp.php";
+  $mail = new PHPMailer;
+
+  $email_user = "paulmaldonado73@gmail.com";
+  $email_password = "mrjzjulkztykeefy";
+  $the_subject = utf8_decode("Notificacion para mi cielo verde");
+  $address_to = "paul_pastore10@hotmail.com";
+
+  $from_name = utf8_decode("MICIELOVERDE: Notificación");
+  $phpmailer = new PHPMailer();
+  // ---------- datos de la cuenta de Gmail -------------------------------
+  $phpmailer->Username = $email_user;
+  $phpmailer->Password = $email_password; 
+  //-----------------------------------------------------------------------
+  // $phpmailer->SMTPDebug = 1;
+  $phpmailer->SMTPSecure = 'ssl';
+  $phpmailer->isHTML(true);
+  $phpmailer->Host = "smtp.gmail.com"; // GMail
+  $phpmailer->Port = 465;
+  $phpmailer->IsSMTP(); // use SMTP
+  $phpmailer->SMTPAuth = true;
+  $phpmailer->setFrom($phpmailer->Username,$from_name);
+  $phpmailer->AddAddress($address_to); // recipients email
+  $phpmailer->Subject = $the_subject; 
+
+  $phpmailer->AddEmbeddedImage("./img/CIELO VERDE- SIN FONDO.png",'logo');
+  $phpmailer->Body .="<center><img src='cid:logo' width=240' height='120'></center>";
+
+  //MENSAJE 
+  $phpmailer->Body .= utf8_decode("Te ha llegado un correo de: <h3>".$name."</h3>");
+  $phpmailer->Body .= utf8_decode("<p>Mensaje: ".$message."</p>");
+  $phpmailer->Body .= utf8_decode("<p>Correo: ".$email."</p>");
+  
+  $phpmailer->IsHTML(true);
+      
+    if($phpmailer->Send()){
+          //echo "CORREO ENVIADO";
+          echo "<script>window.location='index.php?alerta';</script>";
+      }else{
+          //echo "CORREO NO ENVIADO";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,10 +81,10 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
-        .main-text {
+        /*.main-text {
             background: #ccc;
             background: linear-gradient(#e5daba ,gray);
 
@@ -42,6 +93,21 @@
             font-family: 'Dancing Script', cursive;
             font-family: 'Fira Sans', sans-serif;
             font-family: 'Poppins', sans-serif;
+        }*/
+
+        .main-text {
+            animation: fluid 10s ease-in-out infinite;
+            background: linear-gradient(-45deg, #34bfa6, green, white, #9b7411);
+            background-size: 300%;
+            -webkit-background-clip: text;
+                    background-clip: text;      
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes fluid {
+            0% { background-position: 0 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0 50% }
         }
 
         .hero-desing {
@@ -127,7 +193,6 @@
         .form-control {
             padding: .700rem .90rem !important;
             background-color: #f3eddb !important;
-            color: white !important;
             border-color: #d4d1c6 !important;
             font-family: 'Dancing Script', cursive;
             font-family: 'Fira Sans', sans-serif;
@@ -157,6 +222,22 @@
 </head>
 
 <body>
+
+<?php   
+    if(isset($_GET['alerta'])){
+?>
+    <script>
+        Swal.fire({
+            title: 'Notificación enviada',
+            text: 'Tú correo se envío correctamente!',
+            icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+            .then(function() {
+                window.location = "success.php";
+            });
+    </script>
+<?php } ?>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
@@ -551,7 +632,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <h1 class="display-1 text-white mb-5 animated slideInDown main-text text-center help-text">¿PUEDO AYUDARTE?</h1>
-                    <h2 class="text-center text-project">PLATICANOS TU PROOYECTO</h2>
+                    <h2 class="text-center text-project">PLATICANOS TU PROYECTO</h2>
                 </div>
             </div>
         </div>
@@ -559,11 +640,11 @@
         <div class="container">
             <div class="row mt-3">
                 <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 col-xxl-6 mx-auto">
-                    <form>
+                    <form action="index.php" method="POST">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 col-xxl-12">
                                 <div class="form-group">
-                                    <input type="text" placeholder="Tu nombre" class="form-control">
+                                    <input type="text" placeholder="Tu nombre" class="form-control" required name="name" autocomplete="off">
                                 </div>
                             </div>
                         </div>
@@ -571,14 +652,24 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 col-xxl-12 mt-3">
                                 <div class="form-group">
-                                    <input type="email" placeholder="Email" class="form-control">
+                                    <input type="email" placeholder="Email" class="form-control" required name="email" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 col-xxl-12 mt-3">
+                                <div class="form-group">
+                                    <textarea name="message" cols="2" rows="10" class="form-control" placeholder="Mensaje..." required autocomplete="off"></textarea>
                                 </div>
                             </div>
                         </div>
 
                         <div class="d-grid gap-2">
-                            <input type="submit" value="Envíar" class="btn btn-danger mt-3 shadow-lg">
+                            <input type="submit" value="Envíar" class="btn btn-danger mt-3 shadow-lg" name="save">
                         </div>
+                        <br>
                     </form>
                 </div>
             </div>
